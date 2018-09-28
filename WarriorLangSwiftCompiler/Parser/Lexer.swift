@@ -29,29 +29,41 @@ public class Lexer {
 }
 
 // MARK: - Numbers
-fileprivate extension String {
-    var unicode: UInt32 {
-        return unicodeScalars.first?.value ?? 0
-    }
-}
-
 extension Lexer {
+    private static func singleUnicode(_ string: String) -> UInt32? {
+        let unicode = string.unicodeScalars
+        guard unicode.count == 1 else { return nil }
+        return unicode[unicode.startIndex].value
+    }
+
+    private static func unicodeRange(_ from: String, _ to: String) -> Range<UInt32> {
+        guard let from = singleUnicode(from),
+            let to = singleUnicode(to)
+        else { return 0..<0 }
+
+        return from..<(to + 1)
+    }
+
     static func isBinaryDigit(_ char: String) -> Bool {
-        return ("0".unicode..."1".unicode).contains(char.unicode)
+        guard let charUnicode = singleUnicode(char) else { return false }
+        return unicodeRange("0", "1").contains(charUnicode)
     }
 
     static func isOctalDigit(_ char: String) -> Bool {
-        return ("0".unicode..."7".unicode).contains(char.unicode)
+        guard let charUnicode = singleUnicode(char) else { return false }
+        return unicodeRange("0", "7").contains(charUnicode)
     }
 
     static func isDecimalDigit(_ char: String) -> Bool {
-        return ("0".unicode..."9".unicode).contains(char.unicode)
+        guard let charUnicode = singleUnicode(char) else { return false }
+        return unicodeRange("0", "9").contains(charUnicode)
     }
 
     static func isHexdecimalDigit(_ char: String) -> Bool {
+        guard let charUnicode = singleUnicode(char) else { return false }
         return isDecimalDigit(char) ||
-            ("a".unicode..."f".unicode).contains(char.unicode) ||
-            ("A".unicode..."F".unicode).contains(char.unicode)
+            unicodeRange("a", "f").contains(charUnicode) ||
+            unicodeRange("A", "F").contains(charUnicode)
     }
 
     static func isValidDigit(_ char: String, radix: UInt8) -> Bool {

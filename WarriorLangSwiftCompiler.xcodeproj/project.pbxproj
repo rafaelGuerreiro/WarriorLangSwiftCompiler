@@ -24,6 +24,8 @@
 		21F77C9F215DBB0200779EDF /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2143FF93215D7A1800A10CEF /* Parser.swift */; };
 		21F77CA0215DBB0200779EDF /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2143FFB7215D95CF00A10CEF /* Token.swift */; };
 		21F77CA1215DBB0200779EDF /* TokenCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2143FF97215D7A3000A10CEF /* TokenCategory.swift */; };
+		21F77CA3215DCDE100779EDF /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F77CA2215DCDE100779EDF /* StringExtensions.swift */; };
+		21F77CA4215DCDE100779EDF /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F77CA2215DCDE100779EDF /* StringExtensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -52,6 +54,7 @@
 		2143FFB2215D7C6200A10CEF /* Keyword.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = Keyword.swift; sourceTree = "<group>"; };
 		2143FFB5215D8A2B00A10CEF /* FixedWidthIntegerExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = FixedWidthIntegerExtensions.swift; sourceTree = "<group>"; };
 		2143FFB7215D95CF00A10CEF /* Token.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
+		21F77CA2215DCDE100779EDF /* StringExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -151,6 +154,7 @@
 			isa = PBXGroup;
 			children = (
 				2143FFB5215D8A2B00A10CEF /* FixedWidthIntegerExtensions.swift */,
+				21F77CA2215DCDE100779EDF /* StringExtensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -246,6 +250,7 @@
 				21F77C94215DBB0200779EDF /* FixedWidthIntegerExtensions.swift in Sources */,
 				21F77C99215DBB0200779EDF /* Token.swift in Sources */,
 				21F77C95215DBB0200779EDF /* Keyword.swift in Sources */,
+				21F77CA3215DCDE100779EDF /* StringExtensions.swift in Sources */,
 				21F77C98215DBB0200779EDF /* Parser.swift in Sources */,
 				21F77C97215DBB0200779EDF /* LexerState.swift in Sources */,
 				21F77C9A215DBB0200779EDF /* TokenCategory.swift in Sources */,
@@ -260,6 +265,7 @@
 			files = (
 				21F77C9B215DBB0200779EDF /* FixedWidthIntegerExtensions.swift in Sources */,
 				21F77CA1215DBB0200779EDF /* TokenCategory.swift in Sources */,
+				21F77CA4215DCDE100779EDF /* StringExtensions.swift in Sources */,
 				21F77C9C215DBB0200779EDF /* Keyword.swift in Sources */,
 				21F77C9E215DBB0200779EDF /* LexerState.swift in Sources */,
 				2143FFAA215D7B1300A10CEF /* LexerTest.swift in Sources */,
