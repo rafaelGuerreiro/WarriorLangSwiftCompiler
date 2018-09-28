@@ -7,6 +7,6 @@
 //
 
 import Foundation
+import WarriorLang
 
 print("Hello, World!")
-

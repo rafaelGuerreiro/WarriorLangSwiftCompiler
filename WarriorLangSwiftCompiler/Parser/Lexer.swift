@@ -35,26 +35,26 @@ fileprivate extension String {
     }
 }
 
-fileprivate extension Lexer {
-    private func isBinaryDigit(_ char: String) -> Bool {
+extension Lexer {
+    static func isBinaryDigit(_ char: String) -> Bool {
         return ("0".unicode..."1".unicode).contains(char.unicode)
     }
 
-    private func isOctalDigit(_ char: String) -> Bool {
+    static func isOctalDigit(_ char: String) -> Bool {
         return ("0".unicode..."7".unicode).contains(char.unicode)
     }
 
-    private func isDecimalDigit(_ char: String) -> Bool {
+    static func isDecimalDigit(_ char: String) -> Bool {
         return ("0".unicode..."9".unicode).contains(char.unicode)
     }
 
-    private func isHexdecimalDigit(_ char: String) -> Bool {
+    static func isHexdecimalDigit(_ char: String) -> Bool {
         return isDecimalDigit(char) ||
             ("a".unicode..."f".unicode).contains(char.unicode) ||
             ("A".unicode..."F".unicode).contains(char.unicode)
     }
 
-    private func isValidDigit(_ char: String, radix: UInt8) -> Bool {
+    static func isValidDigit(_ char: String, radix: UInt8) -> Bool {
         switch radix {
         case 2:  return isBinaryDigit(char)
         case 8:  return isOctalDigit(char)
@@ -64,7 +64,7 @@ fileprivate extension Lexer {
         }
     }
 
-    private func isExponentialIdentifier(_ char: String, radix: UInt8) -> Bool {
+    static func isExponentialIdentifier(_ char: String, radix: UInt8) -> Bool {
         switch radix {
         case 10: return char == "e" || char == "E"
         case 16: return char == "p" || char == "P"

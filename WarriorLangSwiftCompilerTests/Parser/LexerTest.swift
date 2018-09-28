@@ -18,16 +18,14 @@ class LexerTest: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
+    func testIsBinaryNumber() {
+        XCTAssert(Lexer.isBinaryDigit("0") == true)
+        XCTAssert(Lexer.isBinaryDigit("1") == true)
 
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
+        XCTAssert(Lexer.isBinaryDigit("2") == false)
+        XCTAssert(Lexer.isBinaryDigit("a") == false)
+        XCTAssert(Lexer.isBinaryDigit("F") == false)
+        XCTAssert(Lexer.isBinaryDigit("Some long value") == false)
     }
 
 }

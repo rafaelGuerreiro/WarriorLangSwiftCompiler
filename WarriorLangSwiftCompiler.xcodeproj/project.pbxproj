@@ -8,15 +8,22 @@
 
 /* Begin PBXBuildFile section */
 		2143FF87215D79D200A10CEF /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2143FF86215D79D200A10CEF /* main.swift */; };
-		2143FF92215D7A1000A10CEF /* Lexer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2143FF91215D7A1000A10CEF /* Lexer.swift */; };
-		2143FF94215D7A1800A10CEF /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2143FF93215D7A1800A10CEF /* Parser.swift */; };
-		2143FF96215D7A2800A10CEF /* LexerState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2143FF95215D7A2800A10CEF /* LexerState.swift */; };
-		2143FF98215D7A3000A10CEF /* TokenCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2143FF97215D7A3000A10CEF /* TokenCategory.swift */; };
 		2143FFA2215D7AC200A10CEF /* WarriorLangSwiftCompilerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2143FFA1215D7AC200A10CEF /* WarriorLangSwiftCompilerTests.swift */; };
 		2143FFAA215D7B1300A10CEF /* LexerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2143FFA9215D7B1300A10CEF /* LexerTest.swift */; };
-		2143FFB3215D7C6200A10CEF /* Keyword.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2143FFB2215D7C6200A10CEF /* Keyword.swift */; };
-		2143FFB6215D8A2B00A10CEF /* FixedWidthIntegerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2143FFB5215D8A2B00A10CEF /* FixedWidthIntegerExtensions.swift */; };
-		2143FFB8215D95CF00A10CEF /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2143FFB7215D95CF00A10CEF /* Token.swift */; };
+		21F77C94215DBB0200779EDF /* FixedWidthIntegerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2143FFB5215D8A2B00A10CEF /* FixedWidthIntegerExtensions.swift */; };
+		21F77C95215DBB0200779EDF /* Keyword.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2143FFB2215D7C6200A10CEF /* Keyword.swift */; };
+		21F77C96215DBB0200779EDF /* Lexer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2143FF91215D7A1000A10CEF /* Lexer.swift */; };
+		21F77C97215DBB0200779EDF /* LexerState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2143FF95215D7A2800A10CEF /* LexerState.swift */; };
+		21F77C98215DBB0200779EDF /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2143FF93215D7A1800A10CEF /* Parser.swift */; };
+		21F77C99215DBB0200779EDF /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2143FFB7215D95CF00A10CEF /* Token.swift */; };
+		21F77C9A215DBB0200779EDF /* TokenCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2143FF97215D7A3000A10CEF /* TokenCategory.swift */; };
+		21F77C9B215DBB0200779EDF /* FixedWidthIntegerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2143FFB5215D8A2B00A10CEF /* FixedWidthIntegerExtensions.swift */; };
+		21F77C9C215DBB0200779EDF /* Keyword.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2143FFB2215D7C6200A10CEF /* Keyword.swift */; };
+		21F77C9D215DBB0200779EDF /* Lexer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2143FF91215D7A1000A10CEF /* Lexer.swift */; };
+		21F77C9E215DBB0200779EDF /* LexerState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2143FF95215D7A2800A10CEF /* LexerState.swift */; };
+		21F77C9F215DBB0200779EDF /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2143FF93215D7A1800A10CEF /* Parser.swift */; };
+		21F77CA0215DBB0200779EDF /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2143FFB7215D95CF00A10CEF /* Token.swift */; };
+		21F77CA1215DBB0200779EDF /* TokenCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2143FF97215D7A3000A10CEF /* TokenCategory.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -68,9 +75,9 @@
 		2143FF7A215D79D200A10CEF = {
 			isa = PBXGroup;
 			children = (
+				2143FF84215D79D200A10CEF /* Products */,
 				2143FF85215D79D200A10CEF /* WarriorLangSwiftCompiler */,
 				2143FFA0215D7AC200A10CEF /* WarriorLangSwiftCompilerTests */,
-				2143FF84215D79D200A10CEF /* Products */,
 			);
 			sourceTree = "<group>";
 		};
@@ -89,8 +96,8 @@
 				2143FF8F215D79F900A10CEF /* AST */,
 				2143FFB4215D8A1900A10CEF /* Extensions */,
 				2143FF90215D79FF00A10CEF /* LLVM */,
-				2143FF86215D79D200A10CEF /* main.swift */,
 				2143FF8E215D79F300A10CEF /* Parser */,
+				2143FF86215D79D200A10CEF /* main.swift */,
 			);
 			path = WarriorLangSwiftCompiler;
 			sourceTree = "<group>";
@@ -236,14 +243,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2143FFB6215D8A2B00A10CEF /* FixedWidthIntegerExtensions.swift in Sources */,
-				2143FF96215D7A2800A10CEF /* LexerState.swift in Sources */,
-				2143FF98215D7A3000A10CEF /* TokenCategory.swift in Sources */,
-				2143FF92215D7A1000A10CEF /* Lexer.swift in Sources */,
+				21F77C94215DBB0200779EDF /* FixedWidthIntegerExtensions.swift in Sources */,
+				21F77C99215DBB0200779EDF /* Token.swift in Sources */,
+				21F77C95215DBB0200779EDF /* Keyword.swift in Sources */,
+				21F77C98215DBB0200779EDF /* Parser.swift in Sources */,
+				21F77C97215DBB0200779EDF /* LexerState.swift in Sources */,
+				21F77C9A215DBB0200779EDF /* TokenCategory.swift in Sources */,
+				21F77C96215DBB0200779EDF /* Lexer.swift in Sources */,
 				2143FF87215D79D200A10CEF /* main.swift in Sources */,
-				2143FFB3215D7C6200A10CEF /* Keyword.swift in Sources */,
-				2143FF94215D7A1800A10CEF /* Parser.swift in Sources */,
-				2143FFB8215D95CF00A10CEF /* Token.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -251,8 +258,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				21F77C9B215DBB0200779EDF /* FixedWidthIntegerExtensions.swift in Sources */,
+				21F77CA1215DBB0200779EDF /* TokenCategory.swift in Sources */,
+				21F77C9C215DBB0200779EDF /* Keyword.swift in Sources */,
+				21F77C9E215DBB0200779EDF /* LexerState.swift in Sources */,
 				2143FFAA215D7B1300A10CEF /* LexerTest.swift in Sources */,
 				2143FFA2215D7AC200A10CEF /* WarriorLangSwiftCompilerTests.swift in Sources */,
+				21F77C9D215DBB0200779EDF /* Lexer.swift in Sources */,
+				21F77C9F215DBB0200779EDF /* Parser.swift in Sources */,
+				21F77CA0215DBB0200779EDF /* Token.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -317,6 +331,7 @@
 				SDKROOT = macosx;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TEST_HOST = "$(BUNDLE_LOADER)";
 			};
 			name = Debug;
 		};
@@ -371,6 +386,7 @@
 				SDKROOT = macosx;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				TEST_HOST = "$(BUNDLE_LOADER)";
 			};
 			name = Release;
 		};
