@@ -8,8 +8,8 @@
 
 import Foundation
 
-public enum TokenCategory: String {
-    case eof
+public enum TokenCategory: String, CaseIterable {
+    case endOfFile
     case space // Used to separate tokens that don't necessarily correlate
 
     // Types

@@ -9,7 +9,7 @@
 import Foundation
 
 public struct Keyword {
-    public let keywords: Dictionary<String, TokenCategory> = [
+    public static let keywords: Dictionary<String, TokenCategory> = [
         "class" : .declarationClass,
         "interface" : .declarationInterface,
         "enum" : .declarationEnum,
@@ -86,7 +86,7 @@ public struct Keyword {
         "_" : .underscore,
     ]
 
-    public let compilerDirectiveKeywords: Dictionary<String, TokenCategory> = [
+    public static let compilerDirectiveKeywords: Dictionary<String, TokenCategory> = [
         "#if" : .compileDirectiveIf,
         "#else" : .compileDirectiveElse,
         "#elseif" : .compileDirectiveElseif,

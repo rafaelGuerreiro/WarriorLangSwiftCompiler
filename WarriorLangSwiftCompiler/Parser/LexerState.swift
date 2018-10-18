@@ -8,7 +8,7 @@
 
 import Foundation
 
-public enum LexerState: String {
+public enum LexerState: String, CaseIterable {
     case start
     case symbol
     case identifier

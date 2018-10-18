@@ -9,26 +9,30 @@
 import Foundation
 
 public class Token {
-    public let token: TokenCategory
+    public let category: TokenCategory
     public let value: String
     public let file: String
-    public let indices: Range<UInt64>
-    public let lines: Range<UInt64>
-    public let columns: Range<UInt64>
+    public let range: TokenRange
 
-    init(token: TokenCategory,
+    init(category: TokenCategory,
          value: String,
          file: String,
-         indices: Range<UInt64>,
-         lines: Range<UInt64>,
-         columns: Range<UInt64>)
+         range: TokenRange)
     {
-        self.token = token
+        self.category = category
         self.value = value
         self.file = file
-        self.indices = indices
-        self.lines = lines
-        self.columns = columns
+        self.range = range
+    }
+
+    public func isCategory(_ category: TokenCategory) -> Bool {
+        return self.category == category
+    }
+}
+
+extension Token: CustomStringConvertible {
+    public var description: String {
+        return "\(category): \(range) => '\(value)'";
     }
 }
 
@@ -36,114 +40,71 @@ public class NumberLiteralToken: Token {
     public let radix: UInt8 // 2, 8, 10, 16
     public let isFloatingPoint: Bool // [digit]\.[digit]
 
-    init(token: TokenCategory,
-         value: String,
-         file: String,
-         indices: Range<UInt64>,
-         lines: Range<UInt64>,
-         columns: Range<UInt64>,
-         radix: UInt8,
-         isFloatingPoint: Bool)
-    {
+    init(token: Token, radix: UInt8, isFloatingPoint: Bool) {
         self.radix = radix
         self.isFloatingPoint = isFloatingPoint
 
-        super.init(token: token, value: value, file: file, indices: indices, lines: lines, columns: columns)
+        super.init(category: token.category,
+                   value: token.value,
+                   file: token.file,
+                   range: token.range)
     }
 }
 
 
-class TokenBuilder {
-    private var token: TokenCategory?
-    private var value: String?
-    private var file: String?
-    private var indices: Range<UInt64>?
-    private var lines: Range<UInt64>?
-    private var columns: Range<UInt64>?
-    private var radix: UInt8?
-    private var isFloatingPoint: Bool?
+class TokenBuilder: CustomStringConvertible {
+    let file: String
 
-    func reset() -> TokenBuilder {
-        self.token = nil
-        self.value = nil
-        self.file = nil
-        self.indices = nil
-        self.lines = nil
-        self.columns = nil
-        self.radix = nil
-        self.isFloatingPoint = nil
-        return self
-    }
+    private(set) var value: String = ""
+    private(set) var range: TokenRange
+    private(set) var radix: UInt8?
+    private var floatingPoint: Bool?
 
-    func token(_ token: TokenCategory) -> TokenBuilder {
-        self.token = token
-        return self
-    }
-
-    func value(_ value: String) -> TokenBuilder {
-        self.value = value
-        return self
-    }
-
-    func file(_ file: String) -> TokenBuilder {
+    init(file: String) {
         self.file = file
-        return self
+        self.range = TokenRange(file: file)
     }
 
-    func indices(_ indices: Range<UInt64>) -> TokenBuilder {
-        self.indices = indices
-        return self
+    func reset() {
+        self.value = ""
+        self.range = TokenRange(file: file, index: range.endIndex, line: range.endLine, column: range.endColumn)
+        self.radix = nil
+        self.floatingPoint = nil
     }
 
-    func lines(_ lines: Range<UInt64>) -> TokenBuilder {
-        self.lines = lines
-        return self
+    func increment(char: String) {
+        self.value += char
+        self.range.increment(char: char)
     }
 
-    func columns(_ columns: Range<UInt64>) -> TokenBuilder {
-        self.columns = columns
-        return self
-    }
-
-    func radix(_ radix: UInt8) -> TokenBuilder {
+    func radix(_ radix: UInt8) {
         self.radix = radix
-        return self
     }
 
-    func isFloatingPoint(_ isFloatingPoint: Bool) -> TokenBuilder {
-        self.isFloatingPoint = isFloatingPoint
-        return self
+    var isFloatingPoint: Bool {
+        return self.floatingPoint ?? false
     }
 
-    func build() -> Token? {
-        guard let token = self.token,
-            let value = self.value,
-            let file = self.file,
-            let indices = self.indices,
-            let lines = self.lines,
-            let columns = self.columns else
-        {
-            return nil
-        }
+    func isFloatingPoint(_ floatingPoint: Bool) {
+        self.floatingPoint = floatingPoint
+    }
+
+    func build(category: TokenCategory) -> Token {
+        let token = Token(category: category,
+                          value: value,
+                          file: file,
+                          range: range)
 
         if let radix = self.radix,
-            let isFloatingPoint = self.isFloatingPoint
+            let floatingPoint = self.floatingPoint
         {
-            return NumberLiteralToken(token: token,
-                                      value: value,
-                                      file: file,
-                                      indices: indices,
-                                      lines: lines,
-                                      columns: columns,
-                                      radix: radix,
-                                      isFloatingPoint: isFloatingPoint)
+            return NumberLiteralToken(token: token, radix: radix, isFloatingPoint: floatingPoint)
         }
 
-        return Token(token: token,
-                     value: value,
-                     file: file,
-                     indices: indices,
-                     lines: lines,
-                     columns: columns)
+        return token
+    }
+
+    var description: String {
+        return "file: \(file), value: \"\(value)\", range: \(range), radix: \(String(describing: radix)), isFloatingPoint: \(String(describing: floatingPoint))"
     }
 }

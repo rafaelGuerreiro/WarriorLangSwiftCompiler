@@ -7,6 +7,5 @@
 //
 
 import Foundation
-import WarriorLang
 
-print("Hello, World!")
+print("Hello world!")

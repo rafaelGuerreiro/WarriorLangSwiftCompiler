@@ -9,7 +9,11 @@
 /* Begin PBXBuildFile section */
 		2143FF87215D79D200A10CEF /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2143FF86215D79D200A10CEF /* main.swift */; };
 		2143FFA2215D7AC200A10CEF /* WarriorLangSwiftCompilerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2143FFA1215D7AC200A10CEF /* WarriorLangSwiftCompilerTests.swift */; };
-		2143FFAA215D7B1300A10CEF /* LexerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2143FFA9215D7B1300A10CEF /* LexerTest.swift */; };
+		2143FFAA215D7B1300A10CEF /* LexerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2143FFA9215D7B1300A10CEF /* LexerTests.swift */; };
+		21531565216413B9009A7540 /* StringCharacterExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21531564216413B9009A7540 /* StringCharacterExtensionsTests.swift */; };
+		21531567216416D6009A7540 /* FixedWidthIntegerExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21531566216416D6009A7540 /* FixedWidthIntegerExtensionsTests.swift */; };
+		21F31CCC215EF9F4002F501F /* TokenRange.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F31CCB215EF9F4002F501F /* TokenRange.swift */; };
+		21F31CCD215EFBE1002F501F /* TokenRange.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F31CCB215EF9F4002F501F /* TokenRange.swift */; };
 		21F77C94215DBB0200779EDF /* FixedWidthIntegerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2143FFB5215D8A2B00A10CEF /* FixedWidthIntegerExtensions.swift */; };
 		21F77C95215DBB0200779EDF /* Keyword.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2143FFB2215D7C6200A10CEF /* Keyword.swift */; };
 		21F77C96215DBB0200779EDF /* Lexer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2143FF91215D7A1000A10CEF /* Lexer.swift */; };
@@ -50,10 +54,13 @@
 		2143FF9F215D7AC200A10CEF /* WarriorLangSwiftCompilerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WarriorLangSwiftCompilerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2143FFA1215D7AC200A10CEF /* WarriorLangSwiftCompilerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = WarriorLangSwiftCompilerTests.swift; sourceTree = "<group>"; };
 		2143FFA3215D7AC200A10CEF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		2143FFA9215D7B1300A10CEF /* LexerTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = LexerTest.swift; sourceTree = "<group>"; };
+		2143FFA9215D7B1300A10CEF /* LexerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = LexerTests.swift; sourceTree = "<group>"; };
 		2143FFB2215D7C6200A10CEF /* Keyword.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = Keyword.swift; sourceTree = "<group>"; };
 		2143FFB5215D8A2B00A10CEF /* FixedWidthIntegerExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = FixedWidthIntegerExtensions.swift; sourceTree = "<group>"; };
 		2143FFB7215D95CF00A10CEF /* Token.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
+		21531564216413B9009A7540 /* StringCharacterExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringCharacterExtensionsTests.swift; sourceTree = "<group>"; };
+		21531566216416D6009A7540 /* FixedWidthIntegerExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FixedWidthIntegerExtensionsTests.swift; sourceTree = "<group>"; };
+		21F31CCB215EF9F4002F501F /* TokenRange.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenRange.swift; sourceTree = "<group>"; };
 		21F77CA2215DCDE100779EDF /* StringExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -114,6 +121,7 @@
 				2143FF93215D7A1800A10CEF /* Parser.swift */,
 				2143FFB7215D95CF00A10CEF /* Token.swift */,
 				2143FF97215D7A3000A10CEF /* TokenCategory.swift */,
+				21F31CCB215EF9F4002F501F /* TokenRange.swift */,
 			);
 			path = Parser;
 			sourceTree = "<group>";
@@ -135,6 +143,7 @@
 		2143FFA0215D7AC200A10CEF /* WarriorLangSwiftCompilerTests */ = {
 			isa = PBXGroup;
 			children = (
+				2153156321641396009A7540 /* Extensions */,
 				2143FFA8215D7B1300A10CEF /* Parser */,
 				2143FFA1215D7AC200A10CEF /* WarriorLangSwiftCompilerTests.swift */,
 				2143FFA3215D7AC200A10CEF /* Info.plist */,
@@ -145,7 +154,7 @@
 		2143FFA8215D7B1300A10CEF /* Parser */ = {
 			isa = PBXGroup;
 			children = (
-				2143FFA9215D7B1300A10CEF /* LexerTest.swift */,
+				2143FFA9215D7B1300A10CEF /* LexerTests.swift */,
 			);
 			path = Parser;
 			sourceTree = "<group>";
@@ -155,6 +164,15 @@
 			children = (
 				2143FFB5215D8A2B00A10CEF /* FixedWidthIntegerExtensions.swift */,
 				21F77CA2215DCDE100779EDF /* StringExtensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		2153156321641396009A7540 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				21531564216413B9009A7540 /* StringCharacterExtensionsTests.swift */,
+				21531566216416D6009A7540 /* FixedWidthIntegerExtensionsTests.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -256,6 +274,7 @@
 				21F77C9A215DBB0200779EDF /* TokenCategory.swift in Sources */,
 				21F77C96215DBB0200779EDF /* Lexer.swift in Sources */,
 				2143FF87215D79D200A10CEF /* main.swift in Sources */,
+				21F31CCC215EF9F4002F501F /* TokenRange.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -263,12 +282,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				21531567216416D6009A7540 /* FixedWidthIntegerExtensionsTests.swift in Sources */,
+				21531565216413B9009A7540 /* StringCharacterExtensionsTests.swift in Sources */,
 				21F77C9B215DBB0200779EDF /* FixedWidthIntegerExtensions.swift in Sources */,
 				21F77CA1215DBB0200779EDF /* TokenCategory.swift in Sources */,
+				21F31CCD215EFBE1002F501F /* TokenRange.swift in Sources */,
 				21F77CA4215DCDE100779EDF /* StringExtensions.swift in Sources */,
 				21F77C9C215DBB0200779EDF /* Keyword.swift in Sources */,
 				21F77C9E215DBB0200779EDF /* LexerState.swift in Sources */,
-				2143FFAA215D7B1300A10CEF /* LexerTest.swift in Sources */,
+				2143FFAA215D7B1300A10CEF /* LexerTests.swift in Sources */,
 				2143FFA2215D7AC200A10CEF /* WarriorLangSwiftCompilerTests.swift in Sources */,
 				21F77C9D215DBB0200779EDF /* Lexer.swift in Sources */,
 				21F77C9F215DBB0200779EDF /* Parser.swift in Sources */,
